@@ -1,0 +1,40 @@
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.image-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  animation-name: zoomIn;
+  animation-duration: 0.3s;
+  @include for-size(mobile-tablet) {
+    &__image {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px;
+    }
+  }
+  @include for-size(desktop) {
+    &__image {
+      width: 100%;
+      height: 100%;
+      padding: 50px;
+    }
+  }
+}

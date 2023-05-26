@@ -1,0 +1,40 @@
+header .navbar {
+  background-color: #40146F;
+}
+
+header .navbar-brand {
+  max-height: 100px;
+}
+
+header .navbar-brand .img-fluid {
+  max-height: 50px;
+}
+
+header .navbar-brand .img-logo {
+  height: 50px;
+}
+
+header .navbar-brand .bot-text {
+  color: #ffffff;
+  margin-right: 15px;
+  font-size: 20px;
+  display: inline;
+}
+
+header #feedback-button {
+  margin-right: 10px;
+}
+
+header #logout-button svg {
+  fill: currentColor;
+}
+
+@media (min-width: 768px) {
+  header #logout-button:after {
+    content: " Se déconnecter";
+  }
+
+  header #logout-button svg {
+    margin-right: 8px;
+  }
+}

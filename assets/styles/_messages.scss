@@ -1,0 +1,174 @@
+@include for-size(mobile-tablet) {
+  .messages-frame {
+    padding: 0 32px;
+  }
+}
+
+@include for-size(desktop) {
+  .messages-frame {
+    padding: 20px;
+  }
+}
+
+.messages-frame {
+  height: 100%;
+  flex-grow: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.message-row {
+  width: 100%;
+  height: max-content;
+  margin: 5px 0;
+}
+.head-Dimoitou {
+  height: 55px;
+  padding-right: 5px;
+  margin-top: -20px;
+  //background-image : url("/public/images/DimoitouSpeaking.png")
+}
+
+@include for-size(mobile-tablet) {
+  .message-item {
+    max-width: 100%;
+    width: fit-content;
+    .inner {
+      min-width: 200px;
+    }
+  }
+}
+
+@include for-size(desktop) {
+  .message-item {
+    max-width: 75%;
+    width: max-content;
+    .inner {
+      min-width: 300px;
+    }
+  }
+}
+
+.message-item {
+  padding: 0px 0px 22px 60px;
+  display: block;
+  color: #757575;
+  background-image: url("/images/bubble-left.png");
+  background-repeat: no-repeat;
+  height: min-content;
+  background-position: bottom right;
+  background-origin: padding-box;
+  margin-bottom: 20px;
+
+  .inner {
+    padding: 20px;
+    background-color: #f6f6f6;
+    overflow-wrap: break-word;
+    border-radius: 4px;
+  }
+}
+
+.message-image {
+  width: 100%;
+  padding: 15px 0 15px 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none;
+}
+
+.message-item.server,
+.message-item.loader {
+  background-image: url("/images/bubble-left.png");
+  background-repeat: no-repeat;
+  background-position: bottom 0 left 70px;
+  background-origin: padding-box;
+}
+
+.message-item.server,
+.message-item.loader {
+  .inner {
+    background-color: #f6f6f6;
+    color: #757575;
+  }
+}
+
+.message-item.user {
+  margin-left: auto;
+  background-image: url("/images/bubble-right.png");
+  background-repeat: no-repeat;
+  background-position: bottom 0 right 6px;
+  background-origin: padding-box;
+  .inner {
+    background-color: #69408f;
+    color: #ffffff;
+  }
+}
+
+.inner {
+  line-height: 150%;
+}
+
+.message-item.loader .inner div {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #757575;
+  left: 8px;
+
+  &:nth-child(1) {
+    animation: 1s ease-in-out 0.5s infinite alternate jumping-dot;
+  }
+  &:nth-child(2) {
+    animation: 1s ease-in-out 0.75s infinite alternate jumping-dot;
+  }
+  &:nth-child(3) {
+    animation: 1s ease-in-out 1s infinite alternate jumping-dot;
+    margin-right: 0;
+  }
+  &:nth-child(4) {
+    animation: 1s ease-in-out 1.25s infinite alternate jumping-dot;
+  }
+}
+
+@keyframes jumping-dot {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0, 0px);
+  }
+  40% {
+    transform: translate(0, -10px);
+  }
+  60% {
+    transform: translate(0, 0px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+
+.btn-suggest {
+  width: 100%;
+  white-space: normal;
+  cursor: pointer;
+  padding: 6px 26px;
+  border: 2px solid #00b0f0;
+  border-radius: 24px;
+  color: #00b0f0;
+  background-color: #ffffff;
+  margin: 0 4px 4px 0;
+  font-family: poppinssemibold;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+.btn-suggest:hover {
+  background-color: #00b0f0;
+  color: #ffffff;
+}

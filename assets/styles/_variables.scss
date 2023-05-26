@@ -1,0 +1,33 @@
+$white: #fff;
+$gray-100: #f6f6f6;
+$gray-200: #e1e1e1;
+$gray-300: #dbdbdb;
+$gray-400: #cacaca;
+$gray-500: #b9b9b9;
+$gray-600: #a8a8a8;
+$gray-700: #979797;
+$gray-800: #868686;
+$gray-900: #757575;
+$black: #000;
+
+$primary: #db3924;
+$secondary: #5ad5d9;
+$success: #238500;
+$info: #3175c9;
+$warning: #f4ec5b;
+$danger: #eb0000;
+$light: $gray-100;
+$dark: $gray-900;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+);
+
+$break-mobile-tablet: 1024px;

@@ -1,0 +1,28 @@
+.tooltip {
+  position: relative;
+  opacity: 1;
+}
+
+.tooltip:hover .tooltip-item {
+  opacity: 1;
+  transform: translateX(5px);
+  transition: all 0.2s ease 0.3s;
+  visibility: visible;
+}
+
+.tooltip-item {
+  width: 200px;
+  background: $gray-100;
+  border-radius: 5px;
+  top: 30px;
+  color: $gray-900;
+  font-size: 14px;
+  right: 80px;
+  opacity: 0;
+  padding: 5px 10px;
+  position: absolute;
+  transform: translateX(-50%) translateY(0);
+  transition: all 0.2s ease;
+  user-select: none;
+  visibility: hidden;
+}

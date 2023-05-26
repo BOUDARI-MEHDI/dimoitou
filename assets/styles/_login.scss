@@ -1,0 +1,30 @@
+.login-panel {
+  height: 100%;
+
+  p {
+    text-align: justify;
+  }
+}
+
+.firebaseui-card-content {
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+
+      button {
+        width: 100%;
+        padding: 20px 5px;
+      }
+
+      .firebaseui-idp-icon-wrapper {
+        margin: 0 10px;
+      }
+
+      .firebaseui-idp-text-short {
+        display: none;
+      }
+    }
+  }
+}

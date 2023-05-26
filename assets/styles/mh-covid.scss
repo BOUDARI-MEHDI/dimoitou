@@ -1,0 +1,50 @@
+@import "./variables";
+@import "./responsive";
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "./fonts";
+@import "./header";
+@import "./footer";
+@import "./main";
+@import "./form";
+@import "./messages";
+@import "./login";
+@import "./loader";
+@import "./feedbacks";
+@import "./tooltip";
+@import "./modal";
+@import "./expander";
+@import "./burger";
+@import "./imageWrapper";
+
+body {
+  height: 100vh;
+  background-color: $gray-100;
+  font-family: "poppinsmedium";
+}
+
+/* Overloading Bootstrap */
+.btn {
+  border-radius: 2rem;
+}
+
+.btn-outline-white {
+  border-color: #fff;
+  color: #fff;
+  text-decoration: none !important;
+}
+
+.btn-outline-white:hover {
+  background-color: #69408F;
+  color: #fff;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+}
+
+.container {
+  padding: 0;
+}

@@ -1,0 +1,42 @@
+steps:
+  - name: node:$_NODE_VERSION
+    entrypoint: npm
+    args: ["install"]
+  - name: node:$_NODE_VERSION
+    entrypoint: npm
+    args:
+      [
+        "run",
+        "build",
+        "--",
+        "--env.ANALYTICS_ID=$_ANALYTICS_ID",
+        "--env.DOMAIN_NAME=$_DOMAIN_NAME",
+        "--env.FIREBASE_ENVIRONMENT=$_FIREBASE_ENVIRONMENT",
+        "--env.TENANT_ID=$_TENANT_ID",
+      ]
+  - name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: "sh"
+    args:
+      - -c
+      - |
+        # Replacing var in template with real values
+        sed -i -e ~s~{DIALOGFLOW_ENVIRONNEMENT}~$_DIALOGFLOW_ENVIRONNEMENT~ \
+          -e ~s~{FIREBASE_ENVIRONMENT}~_FIREBASE_ENVIRONMENT~               \
+          -e ~s~{TENANT_ID}~_TENANT_ID~                                     \
+          -e ~s~{PROJECT_ID}~$PROJECT_ID~                                   \
+          -e ~s~{ANALYTICS_ID}~$_ANALYTICS_ID~                              \
+          -e ~s~{DOMAIN_NAME}~$_DOMAIN_NAME~                                \
+          -e ~s~{FEEDBACK_TOPIC_NAME}~$_FEEDBACK_TOPIC_NAME~                \
+          -e ~s~{USER_INFO_ENV}~$_USER_INFO_ENV~                            \
+          -e ~s~{USER_INFO_URL_DOMAIN}~$_USER_INFO_URL_DOMAIN~              \
+          -e ~s~{USER_INFO_URL_PATH}~$_USER_INFO_URL_PATH~                  \
+          -e ~s~{BOT_NAME}~$_BOT_NAME~ app.yaml                             \
+          -e ~s~{MIN_IDLE_INSTANCES}~$_MIN_IDLE_INSTANCES~                  \
+          -e ~s~{FETCHER_IMAGE_FUNCTION_URL}~$_FETCHER_IMAGE_FUNCTION_URL~  \
+
+
+        # Formating deployment version
+        version="v$(date "+%F")-$SHORT_SHA"
+
+        # Deployment
+        gcloud app deploy app.yaml -v $version
